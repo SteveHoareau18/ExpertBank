@@ -21,6 +21,7 @@ public class User implements Serializable{
 	private String name,firstName,email,password,salt;
 	private int phoneNumber;
 	
+	
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", firstName=" + firstName + ", email=" + email + ", password="
