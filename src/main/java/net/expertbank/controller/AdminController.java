@@ -10,6 +10,8 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
 import net.expertbank.model.Administrator;
 import net.expertbank.model.Operator;
+import net.expertbank.model.SaltedPassword;
+import net.expertbank.services.PasswordService;
 
 @Path("/admin")
 @RequestScoped
@@ -23,8 +25,11 @@ public class AdminController {
 	@Path("/generate/default")
 	@Produces("application/json")
 	public Response generateDefault() {	
+		SaltedPassword saltedPassword = PasswordService.toSecurePassword("test1234");
+		em.persist(saltedPassword);
+		
 		Administrator administrator = new Administrator();
-		administrator.setActive(true).setEmail("steve.hoareau1@gmail.com").setFirstName("Steve").setName("Hoareau").setPhoneNumber("0692010203").setPassword("steve1234").setSalt("");
+		administrator.setActive(true).setEmail("steve.hoareau1@gmail.com").setFirstName("Steve").setName("Hoareau").setPhoneNumber("0692010203").setSaltedPassword(saltedPassword);
 		
 		em.persist(administrator);
 		

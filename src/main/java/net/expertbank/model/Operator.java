@@ -46,16 +46,15 @@ public class Operator extends Client{
 	}
 
 	@Override
-	public Operator setPassword(String password) {
-		// TODO Auto-generated method stub
-		super.setPassword(password);
-		return this; 
+	public Operator setSaltedPassword(SaltedPassword saltedPassword) {
+		super.setSaltedPassword(saltedPassword);
+		return this;
 	}
 
 	@Override
-	public Operator setSalt(String salt) {
-		// TODO Auto-generated method stub
-		super.setSalt(salt);
-		return this; 
+	public String toString() {
+		return "Operator [getName()=" + getName() + ", getFirstName()=" + getFirstName() + ", getPhoneNumber()="
+				+ getPhoneNumber() + ", isActive()=" + isActive() + ", getEmail()=" + getEmail()
+				+ ", getSaltedPassword()=" + getSaltedPassword() + ", toString()=" + super.toString() + "]";
 	}
 }
