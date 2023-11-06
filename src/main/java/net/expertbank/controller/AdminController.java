@@ -10,7 +10,6 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
 import net.expertbank.model.Administrator;
-import net.expertbank.model.Client;
 import net.expertbank.model.Operator;
 
 @Path("/admin")
@@ -28,6 +27,7 @@ public class AdminController {
 		Administrator administrator = new Administrator();
 		administrator.setActive(true).setEmail("steve.hoareau1@gmail.com").setFirstName("Steve").setName("Hoareau").setPhoneNumber("0692010203").setPassword("steve1234").setSalt("");
 		em.persist(administrator);
+		
 		return Response.ok(administrator).build();
 	}
 	
