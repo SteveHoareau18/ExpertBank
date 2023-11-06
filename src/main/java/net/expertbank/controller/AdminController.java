@@ -1,7 +1,9 @@
 package net.expertbank.controller;
 
+import jakarta.enterprise.context.RequestScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
@@ -10,6 +12,8 @@ import net.expertbank.model.Administrator;
 import net.expertbank.model.Operator;
 
 @Path("/admin")
+@RequestScoped
+@Transactional
 public class AdminController {
 	
 	@PersistenceContext
