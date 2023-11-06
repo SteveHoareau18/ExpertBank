@@ -23,12 +23,12 @@ public class AccountBank implements Serializable {
 	private String IBAN;
 	private float money;
 	@OneToOne
-	private Member member;
+	private Client member;
 	
-	public Member getUserAccount() {
+	public Client getUserAccount() {
 		return member;
 	}
-	public AccountBank setUserAccount(Member member) {
+	public AccountBank setUserAccount(Client member) {
 		this.member = member;
 		return this;
 	}
