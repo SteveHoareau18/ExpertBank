@@ -28,6 +28,7 @@ public class OperatorController {
 		em.persist(client);
 		AccountBank accountBank = new AccountBank();
 		accountBank.setIBAN(IbanService.generateIBAN()).setUserAccount(client);
+<<<<<<< HEAD
         em.persist(accountBank);
         return Response.ok(accountBank).build();
     }
@@ -40,5 +41,9 @@ public class OperatorController {
 		em.merge(client);
 		
 		return Response.ok(client).status(202).build();
+=======
+		em.persist(accountBank);
+		return Response.ok(accountBank).build();
+>>>>>>> 3b376c275479209a0b364c2062c4b79e5148ff86
 	}
 }

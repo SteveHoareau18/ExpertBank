@@ -1,5 +1,8 @@
 package net.expertbank.model;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class Administrator extends Operator{
 
 	/**
