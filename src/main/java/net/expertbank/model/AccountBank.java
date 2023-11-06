@@ -23,13 +23,13 @@ public class AccountBank implements Serializable {
 	private String IBAN;
 	private float money;
 	@OneToOne
-	private User user;
+	private Member member;
 	
-	public User getUser() {
-		return user;
+	public Member getUserAccount() {
+		return member;
 	}
-	public AccountBank setUser(User user) {
-		this.user = user;
+	public AccountBank setUserAccount(Member member) {
+		this.member = member;
 		return this;
 	}
 	
@@ -55,6 +55,6 @@ public class AccountBank implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "AccountBank [IBAN=" + IBAN + ", money=" + money + ", user=" + user + "]";
+		return "AccountBank [id=" + id + ", IBAN=" + IBAN + ", money=" + money + ", member=" + member + "]";
 	}
 }
