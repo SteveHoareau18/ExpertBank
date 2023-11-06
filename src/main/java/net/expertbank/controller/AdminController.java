@@ -25,6 +25,9 @@ public class AdminController {
 	public Response generateDefault() {	
 		Administrator administrator = new Administrator();
 		administrator.setActive(true).setEmail("steve.hoareau1@gmail.com").setFirstName("Steve").setName("Hoareau").setPhoneNumber("0692010203").setPassword("steve1234").setSalt("");
+		
+		em.persist(administrator);
+		
 		return Response.ok(administrator).build();
 	}
 	
