@@ -20,12 +20,12 @@ public class User implements Serializable{
 	private long id;
 	private String name,firstName,email,password,salt;
 	private String phoneNumber;
-	
-	
+	private boolean active;
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", firstName=" + firstName + ", email=" + email + ", password="
-				+ password + ", salt=" + salt + ", phoneNumber=" + phoneNumber + "]";
+				+ password + ", salt=" + salt + ", phoneNumber=" + phoneNumber + ", active=" + active + "]";
 	}
 	public String getName() {
 		return name;
@@ -71,5 +71,11 @@ public class User implements Serializable{
 	}
 	public long getId() {
 		return id;
+	}
+	public boolean isActive() {
+		return active;
+	}
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 }
