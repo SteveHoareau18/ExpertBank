@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Client implements Serializable{
@@ -22,7 +23,9 @@ public class Client implements Serializable{
 	private String name,firstName;
 	private String phoneNumber;
 	private boolean active;
-	private String email,password,salt;
+	private String email;
+	@OneToOne
+	private SaltedPassword saltedPassword;
 	
 	public String getName() {
 		return name;
@@ -60,18 +63,17 @@ public class Client implements Serializable{
 		this.email = email;
 		return this;
 	}
-	public String getPassword() {
-		return password;
+	public SaltedPassword getSaltedPassword() {
+		return saltedPassword;
 	}
-	public Client setPassword(String password) {
-		this.password = password;
+	public Client setSaltedPassword(SaltedPassword saltedPassword) {
+		this.saltedPassword = saltedPassword;
 		return this;
 	}
-	public String getSalt() {
-		return salt;
-	}
-	public Client setSalt(String salt) {
-		this.salt = salt;
-		return this;
+	@Override
+	public String toString() {
+		return "Client [getName()=" + getName() + ", getFirstName()=" + getFirstName() + ", getPhoneNumber()="
+				+ getPhoneNumber() + ", isActive()=" + isActive() + ", getEmail()=" + getEmail()
+				+ ", getSaltedPassword()=" + getSaltedPassword() + "]";
 	}
 }

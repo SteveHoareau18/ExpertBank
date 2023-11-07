@@ -46,16 +46,16 @@ public class Administrator extends Operator{
 	}
 
 	@Override
-	public Administrator setPassword(String password) {
+	public Administrator setSaltedPassword(SaltedPassword saltedPassword) {
 		// TODO Auto-generated method stub
-		 super.setPassword(password);
-		 return this;
+		super.setSaltedPassword(saltedPassword);
+		return this;
 	}
 
 	@Override
-	public Administrator setSalt(String salt) {
-		// TODO Auto-generated method stub
-		 super.setSalt(salt);
-		 return this;
+	public String toString() {
+		return "Administrator [toString()=" + super.toString() + ", getName()=" + getName() + ", getFirstName()="
+				+ getFirstName() + ", getPhoneNumber()=" + getPhoneNumber() + ", isActive()=" + isActive()
+				+ ", getEmail()=" + getEmail() + ", getSaltedPassword()=" + getSaltedPassword() + "]";
 	}
 }
