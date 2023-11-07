@@ -19,7 +19,7 @@ import net.expertbank.services.PasswordService;
 @Transactional
 public class AdminController {
 	
-	@PersistenceContext
+	@PersistenceContext(unitName = "expertbank-persistence-unit")
 	private EntityManager em;
 	
 	@POST
@@ -41,6 +41,7 @@ public class AdminController {
 	@Path("/operator/create")
 	@Produces("application/json")
 	public Response operatorCreate(Operator operator) {
+		if(operator.getSaltedPassword()!=null)em.persist(operator.getSaltedPassword());
 		em.persist(operator);
 		
 		return Response.ok(operator).build();

@@ -18,13 +18,14 @@ import net.expertbank.services.IbanService;
 @Transactional
 public class OperatorController {
 	
-	@PersistenceContext
+	@PersistenceContext(unitName = "expertbank-persistence-unit")
 	private EntityManager em;
 	
 	@POST
 	@Path("/client/create")
 	@Produces("application/json")
 	public Response clientCreate(Client client) {
+		if(client.getSaltedPassword()!=null)em.persist(client.getSaltedPassword());
 		em.persist(client);
 		AccountBank accountBank = new AccountBank();
 		accountBank.setIBAN(IbanService.generateIBAN()).setUserAccount(client);
