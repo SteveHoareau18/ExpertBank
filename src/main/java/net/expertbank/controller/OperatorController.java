@@ -5,6 +5,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
@@ -27,7 +28,17 @@ public class OperatorController {
 		em.persist(client);
 		AccountBank accountBank = new AccountBank();
 		accountBank.setIBAN(IbanService.generateIBAN()).setUserAccount(client);
-		em.persist(accountBank);
-		return Response.ok(accountBank).build();
+        em.persist(accountBank);
+        return Response.ok(accountBank).build();
+    }
+	
+	@PUT
+	@Path("/client/update")
+	@Produces("application/json")
+	public Response clientpdate(Client client) {
+		
+		em.merge(client);
+		
+		return Response.ok(client).status(202).build();
 	}
 }
