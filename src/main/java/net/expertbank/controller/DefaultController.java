@@ -5,7 +5,9 @@ import java.util.List;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
 import net.expertbank.model.AccountBank;
@@ -32,4 +34,17 @@ public class DefaultController {
 		//
 		return Response.status(403).entity("Mot de passe invalide").build();
 	}
+	
+	@POST
+	@Produces("application/json")
+	@Path("/give/{client}/{montant}")
+	public Response montantEnvoie (@PathParam("client") Long clientId, @PathParam("montant") float montant) {
+		
+		
+		
+		Client client = em.find(Client.class, clientId);
+		if(client==null) return Response.status(404).build();
+		
+		return Response.ok(client).status(202).build();
+		}
 }
