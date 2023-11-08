@@ -27,6 +27,9 @@ public class Client implements Serializable{
 	@OneToOne
 	private SaltedPassword saltedPassword;
 	
+	public long getId() {
+		return id;
+	}
 	public String getName() {
 		return name;
 	}
