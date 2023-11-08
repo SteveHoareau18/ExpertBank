@@ -9,7 +9,7 @@ public class Administrator extends Operator{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
 	@Override
 	public Administrator setName(String name) {
 		// TODO Auto-generated method stub
