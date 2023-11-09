@@ -2,8 +2,10 @@ package net.expertbank.controller;
 
 import java.util.List;
 
+import jakarta.enterprise.context.RequestScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
@@ -12,6 +14,8 @@ import net.expertbank.model.AccountBank;
 import net.expertbank.model.Client;
 
 @Path("/bank")
+@RequestScoped
+@Transactional
 public class DefaultController {
 	
 	@PersistenceContext(unitName = "expertbank-persistence-unit")
@@ -31,5 +35,11 @@ public class DefaultController {
 		return Response.ok().entity(accountBank).build();
 		//
 		return Response.status(403).entity("Mot de passe invalide").build();
+	}
+	
+	@GET
+	@Path("/test")
+	public Response myMoney() {
+		return Response.ok().entity("Hello world").build();
 	}
 }
