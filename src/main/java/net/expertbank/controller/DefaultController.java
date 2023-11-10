@@ -37,14 +37,12 @@ public class DefaultController {
 	
 	@POST
 	@Produces("application/json")
-	@Path("/give/{client}/{montant}")
-	public Response montantEnvoie (@PathParam("client") Long clientId, @PathParam("montant") float montant) {
+	@Path("/give/{receveur}/{montant}")
+	public Response montantEnvoie (AccountBank accountBank, @PathParam("receveur") long client_id, @PathParam("montant") long montant) {
 		
-		
-		
-		Client client = em.find(Client.class, clientId);
-		if(client==null) return Response.status(404).build();
-		
-		return Response.ok(client).status(202).build();
+		accountBank.setMoney(accountBank.getMoney()-montant);
+		AccountBank accountBankReceveur = em.createQuery("select ab from AccountBank as ab where member_id = ?",AccountBank.class).setParameter(1,client_id).getSingleResult();
+		accountBankReceveur.setMoney(accountBankReceveur.getMoney()+montant);
+		return Response.ok().entity(accountBank).build();
 		}
 }
