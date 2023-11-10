@@ -1,10 +1,10 @@
 ExpertBank : La Banque des Expert
 ========================
 
-Auteur : Steve HOAREAU
-Contributions: Maxime Clain et Samuel Etienne
-Projet cible : WildFly
-Source : https://github.com/wildfly/quickstart/
+<p>Auteur : Steve HOAREAU</p>
+<p>Contributions: Maxime Clain et Samuel Etienne</p>
+<p>Projet cible : WildFly</p>
+<p>Source : https://github.com/wildfly/quickstart/</p>
 
 Qu'est-ce que c'est?
 C'est le back end d'ExpertBank en Java EE (Jakarta)
